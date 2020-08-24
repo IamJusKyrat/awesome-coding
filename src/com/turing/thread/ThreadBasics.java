@@ -1,4 +1,4 @@
-package com.turing.threads;
+package com.turing.thread;
 
 public class ThreadBasics {
 }

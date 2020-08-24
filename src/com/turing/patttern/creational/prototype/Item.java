@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.prototype;
+package com.turing.patttern.creational.prototype;
 
 public abstract class Item implements Cloneable{
     private String title;

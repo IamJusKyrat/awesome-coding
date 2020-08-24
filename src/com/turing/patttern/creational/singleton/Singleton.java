@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.singleton;
+package com.turing.patttern.creational.singleton;
 
 public class Singleton {
 

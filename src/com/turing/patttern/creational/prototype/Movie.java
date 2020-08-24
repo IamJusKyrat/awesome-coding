@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.prototype;
+package com.turing.patttern.creational.prototype;
 
 public class Movie extends Item {
     private int runtime;

@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.prototype;
+package com.turing.patttern.creational.prototype;
 
 public class Book extends Item {
     private int numberOfPages;

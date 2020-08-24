@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.builder;
+package com.turing.patttern.creational.builder;
 
 public class LunchOrder {
     //This object is immutable as it exposes no public constructors and/or setter methods

@@ -1,14 +1,9 @@
-package com.turing.designPattterns.creational;
+package com.turing.patttern.creational;
 
-import com.turing.designPattterns.creational.builder.LunchOrder;
-import com.turing.designPattterns.creational.prototype.Movie;
-import com.turing.designPattterns.creational.prototype.Record;
-import com.turing.designPattterns.creational.prototype.Registry;
-import com.turing.designPattterns.creational.prototype.Statement;
-import com.turing.designPattterns.creational.singleton.Singleton;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.turing.patttern.creational.builder.LunchOrder;
+import com.turing.patttern.creational.prototype.Movie;
+import com.turing.patttern.creational.prototype.Registry;
+import com.turing.patttern.creational.singleton.Singleton;
 
 abstract public class CreationalDPTestRunner {
     public static void testSingletonPattern(){

@@ -1,4 +1,4 @@
-package com.turing.designPattterns.creational.prototype;
+package com.turing.patttern.creational.prototype;
 
 import java.util.HashMap;
 import java.util.Map;

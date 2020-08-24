@@ -1,6 +1,4 @@
-package com.turing.designPattterns.creational.prototype;
-
-import jdk.jfr.consumer.RecordedClass;
+package com.turing.patttern.creational.prototype;
 
 import java.util.List;
 

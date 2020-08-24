@@ -1,12 +1,11 @@
 package com.turing;
 
-import com.turing.designPattterns.creational.CreationalDPTestRunner;
+import com.turing.algorithm.dynamicprogramming.PatientAppointment;
 
 public class Main {
 
     public static void main(String[] args) {
-        //CreationalDPTestRunner.testSingletonPattern();
-        //CreationalDPTestRunner.testBuilderPattern();
-        CreationalDPTestRunner.testPrototypePattern();
+        PatientAppointment pa = new PatientAppointment();
+        pa.calculateAppointment();
     }
 }
