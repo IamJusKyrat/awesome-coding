@@ -1,4 +1,4 @@
-package com.turing.algorithm.dynamicprogramming;
+package com.turing.excercises;
 
 import java.util.*;
 
