@@ -1,11 +1,35 @@
 package com.turing;
 
-import com.turing.excercises.LeetCodeArrays;
+import com.turing.excercises.AStarShortestPath;
+import com.turing.excercises.BFSShortestPath;
 
 public class Main {
-    public static void main(String[] args){
-        LeetCodeArrays.maxProfit121(new int[]{7,1,5,3,6,4});
-        LeetCodeArrays.maxProfit121(new int[]{2,4,1});
-        LeetCodeArrays.maxProfit121(new int[]{7,6,4,3,1});
+    public static void main(String[] args) {
+        int[][] mat =
+                /*{
+                        {1,0,1},
+                        {1,1,1}
+                };*/
+                {
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                        {0, 0, 1, 0, 1, 1, 1, 0, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 1, 1, 0, 1},
+                        {0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 0, 1, 1, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
+                        {0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
+                };
+
+        int min_dist = AStarShortestPath.findShortestAStarPath(mat, 0, 0, 9, 9, true);
+
+        if (min_dist != -1) {
+            System.out.println("The shortest path from source to destination " +
+                    "has length " + min_dist);
+        } else {
+            System.out.println("Destination cannot be reached from source");
+        }
     }
 }
