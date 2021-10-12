@@ -1,15 +1,10 @@
 package com.turing;
 
 import com.turing.excercises.AStarShortestPath;
-import com.turing.excercises.BFSShortestPath;
 
 public class Main {
     public static void main(String[] args) {
         int[][] mat =
-                /*{
-                        {1,0,1},
-                        {1,1,1}
-                };*/
                 {
                         {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
                         {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
