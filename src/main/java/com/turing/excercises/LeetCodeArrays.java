@@ -15,5 +15,4 @@ public class LeetCodeArrays {
         }
         return maxSoFar;
     }
-
 }
