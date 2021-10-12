@@ -39,9 +39,11 @@ public class AStarShortestPath {
 
 
         open.add(start);
+        int nodesCalled = 0;
         while (!open.isEmpty()) {
             final Node current = open.poll();
-            System.out.println("Called Node | " + current.x + "," + current.y + " | " + current.getFCost());
+            nodesCalled += 1;
+            System.out.println("Called Node ("+ nodesCalled +") | " + current.x + "," + current.y + " | " + current.getFCost());
             closed.add(current);
             if(sameCoordinates(current, endX, endY)) {
                 if(printPath) {
