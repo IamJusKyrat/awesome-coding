@@ -1,4 +1,4 @@
-package com.turing.excercises;
+package com.turing.excercise;
 
 public class MaxSubArray {
     /**

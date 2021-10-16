@@ -1,4 +1,4 @@
-package com.turing.excercises;
+package com.turing.excercise;
 
 public class LeetCodeSorting {
     public static int[] smallerNumbersThanCurrent1365(int[] nums) {
