@@ -2,11 +2,8 @@ package com.turing;
 
 import com.turing.algorithm.AStarShortestPath;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        System.out.println(StringU.join(List.of(null, null), " "));
         int[][] mat =
                 {
                         {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
