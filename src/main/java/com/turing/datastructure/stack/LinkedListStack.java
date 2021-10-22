@@ -4,8 +4,12 @@ import com.turing.datastructure.linkedlist.DoublyLinkedList;
 
 import java.util.Iterator;
 
+/**
+ * TODO: Documentation
+ * @param <E>
+ */
 public class LinkedListStack<E> implements Stack<E>, Iterable<E> {
-    private DoublyLinkedList<E> list = new DoublyLinkedList<>();
+    private final DoublyLinkedList<E> list = new DoublyLinkedList<>();
 
     @Override
     public int size() {

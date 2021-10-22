@@ -9,7 +9,8 @@ import java.util.Iterator;
  */
 @SuppressWarnings("unchecked")
 public class DoublyLinkedList<E> implements Iterable<E>{
-    private class Node<E> {
+    // TODO: Checkout Java's implementation of DoublyLinkedList
+    private static class Node<E> {
         private Node<E> previous, next;
         private E data;
 
