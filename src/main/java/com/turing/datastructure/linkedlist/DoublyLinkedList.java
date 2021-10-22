@@ -1,7 +1,6 @@
 package com.turing.datastructure.linkedlist;
 
-import java.io.FileNotFoundException;
-import java.util.Objects;
+import java.util.Iterator;
 
 /**
  * Implementation of a double linked list.
@@ -9,7 +8,7 @@ import java.util.Objects;
  * @author Jaskirat Uppal
  */
 @SuppressWarnings("unchecked")
-public class DoublyLinkedList<E> {
+public class DoublyLinkedList<E> implements Iterable<E>{
     private class Node<E> {
         private Node<E> previous, next;
         private E data;
@@ -51,7 +50,7 @@ public class DoublyLinkedList<E> {
      * Insert at the end of the link list
      * @param element Element Data
      */
-    public void insert(E element) {insertLast(element);}
+    public void insert(final E element) {insertLast(element);}
 
     public void insertLast(final E element) {
         final Node<E> newNode = new Node<>(element, tail, null);
@@ -60,6 +59,17 @@ public class DoublyLinkedList<E> {
         } else {
             tail.next = newNode;
             tail = newNode;
+        }
+        size++;
+    }
+
+    public void insertFirst(final E element) {
+        final Node<E> newNode = new Node<>(element, null, head);
+        if(isEmpty()) {
+            head = tail = newNode;
+        } else {
+            head.previous = newNode;
+            head = newNode;
         }
         size++;
     }
@@ -82,13 +92,15 @@ public class DoublyLinkedList<E> {
         return tail.data;
     }
 
+    public E peek() {return null;}  // TODO: Implementation Pending
+
     public E removeFirst() {
         if(isEmpty()) throw new RuntimeException("List is empty");
         final Node<E> node = head;
         if(head.next == null) { head = tail = null; }
         else { head = head.next; }
 
-        E data = node.data;
+        final E data = node.data;
         clearCurrentNode(node);
         size--;
         return data;
@@ -106,7 +118,7 @@ public class DoublyLinkedList<E> {
         return data;
     }
 
-    public E remove(Node<E> node) {
+    public E remove(final Node<E> node) {
         if(node.previous == null) return removeFirst();
         if(node.next == null) return removeLast();
 
@@ -120,13 +132,18 @@ public class DoublyLinkedList<E> {
         return data;
     }
 
-    public E removeAt(int index) {return null;}  // TODO: Complete Implementation
-    public E remove(E element) {return null;}  // TODO: Complete Implementation
-    public boolean contains(E element) {return false;}  // TODO: Complete Implementation
+    public E removeAt(int index) {return null;}  // TODO: Implementation Pending
+    public E remove(E element) {return null;}  // TODO: Implementation Pending
+    public boolean contains(E element) {return false;}  // TODO: Implementation Pending
 
     private void clearCurrentNode(Node<E> node) {
         node.data = null;
         node = node.previous = node.next = null;
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return null; // TODO: Implementation Pending
     }
 }
 

@@ -1,4 +1,4 @@
-package com.turing.datastructure;
+package com.turing.datastructure.array;
 
 import com.turing.datastructure.array.DynamicArray;
 import org.junit.jupiter.api.Assertions;
