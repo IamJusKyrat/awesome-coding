@@ -31,6 +31,12 @@ public class DynamicArray<E> implements Iterable<E> {
         return indexOf(element) != -1;
 
     }
+
+    public void clear () {
+        for (int i = 0; i < len; i++) backing[i] = null;
+        len = 0;
+    }
+
     public int indexOf(E element) {
         for(int index=0; index < len; index++) {
             if(backing[index] == element) {
