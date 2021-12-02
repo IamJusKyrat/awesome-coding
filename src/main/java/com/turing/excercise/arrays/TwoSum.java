@@ -1,9 +1,18 @@
-package com.turing.excercise;
+package com.turing.excercise.arrays;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Category: Easy
+ *
+ * Question: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * You can return the answer in any order.
+ *
+ * Reference: https://leetcode.com/problems/two-sum/
+ */
 public class TwoSum {
     public void run() {
         final int[] arrayInputs = new int[]{11,3,-5,-12,7,13};
@@ -92,7 +101,8 @@ public class TwoSum {
 
     public static class MapSolution{
         /**
-         * This solution only checks the difference at each point passing once over the entire array, if complement value is found it will output the response.
+         * This solution only checks the difference at each point passing once over the entire array,
+         * if complement value is found it will output the response.
          * @param nums
          * @param target
          * @return
