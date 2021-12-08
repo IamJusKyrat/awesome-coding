@@ -1,4 +1,4 @@
-package com.turing.excercise.lists;
+package com.turing.excercise.list;
 
 /**
  * Category: Hard

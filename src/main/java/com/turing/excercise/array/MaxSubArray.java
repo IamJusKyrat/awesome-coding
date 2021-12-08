@@ -1,4 +1,4 @@
-package com.turing.excercise.arrays;
+package com.turing.excercise.array;
 
 /**
  * Category: Easy

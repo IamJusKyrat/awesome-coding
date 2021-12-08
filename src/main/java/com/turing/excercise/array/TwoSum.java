@@ -1,4 +1,4 @@
-package com.turing.excercise.arrays;
+package com.turing.excercise.array;
 
 import java.util.Arrays;
 import java.util.HashMap;

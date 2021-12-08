@@ -2,7 +2,7 @@ package com.turing.algorithm;
 
 import java.util.*;
 
-public class AStarShortestPath {
+public class AStarShortestPath implements Runnable{
     // Below arrays detail all four possible movements from a cell
     private static final int[] row = {-1, 0, 0, 1};
     private static final int[] col = {0, -1, 1, 0};
@@ -82,5 +82,31 @@ public class AStarShortestPath {
 
     private static boolean sameCoordinates(final Node current, final int x, final int y) {
         return current.x == x && current.y == y;
+    }
+
+    @Override
+    public void run() {
+        int[][] testCase =
+                {
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                        {0, 0, 1, 0, 1, 1, 1, 0, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 1, 1, 0, 1},
+                        {0, 0, 0, 1, 0, 0, 0, 1, 0, 1},
+                        {1, 0, 1, 1, 1, 0, 0, 1, 1, 0},
+                        {0, 0, 0, 0, 1, 0, 0, 1, 0, 1},
+                        {0, 1, 1, 1, 1, 1, 1, 1, 0, 0},
+                        {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
+                        {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
+                };
+
+        int min_dist = AStarShortestPath.findShortestAStarPath(testCase, 0, 0, 9, 9, true);
+
+        if (min_dist != -1) {
+            System.out.println("The shortest path from source to destination " +
+                    "has length " + min_dist);
+        } else {
+            System.out.println("Destination cannot be reached from source");
+        }
     }
 }
