@@ -1,4 +1,4 @@
-package com.turing.tree;
+package com.turing.datastructure.tree;
 
 import com.turing.datastructure.queue.LinkedListQueue;
 import com.turing.datastructure.queue.Queue;
