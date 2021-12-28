@@ -1,14 +1,11 @@
 package com.turing;
 
-import com.turing.excercise.string.LongestNonRepeatingSubstring;
-
-import java.util.Arrays;
+import com.turing.excercise.string.StringToInteger;
 
 public class Main {
     public static void main(String[] args) {
-        int[] testcases = new int[] {5, 8};
-        Arrays.stream(testcases).forEach(val -> System.out.println(Main.fib(val)));
-        Arrays.stream(testcases).forEach(val -> System.out.println(Main.slowFib(val)));
+        StringToInteger atoi = new StringToInteger();
+        atoi.run();
     }
 
     private static int slowFib(int value) {
