@@ -1,5 +1,7 @@
 package com.turing.excercise.string;
 
+import com.turing.interview.meta.LargestTripleMultiplication;
+
 import java.util.Arrays;
 
 /**
@@ -24,42 +26,39 @@ import java.util.Arrays;
  * Reference: https://leetcode.com/problems/string-to-integer-atoi/
  */
 public class StringToInteger implements Runnable{
-
-    static final int[] POWER_OF_TEN = {1,10,100,1000,10000, 100000, 1000000, 10000000, 100000000, 1000000000};
     public int myAtoi(String s) {
-        int MAX_INTEGER = 2147483647, MIN_INTEGER = -2147483648;
-        int readPointer = 0;
-        boolean isNegative = false;
-        char[] numberArr = new char[10]; int numLength = 0;
+        int readPointer = 0; int number = 0;
+        int sign = 0;
 
-        while((readPointer < s.length()) && numLength < 10) {
+        while((readPointer < s.length())) {
             char value = s.charAt(readPointer);
             int asciiValue = value;
-
-            if((numLength > 0) && (asciiValue < 48 || asciiValue > 57)) break;
             ++readPointer;
-            if(asciiValue == 32 || asciiValue == 43) { continue; }
-            else if(asciiValue == 45) { isNegative = true; }
-            else if(48 <= asciiValue && asciiValue <= 57) {numberArr[numLength] = value; numLength++;}
-
+            if(asciiValue == 32) {continue;}
+            else if(asciiValue == 43) {sign = 1;}
+            else if(asciiValue == 45) { sign = -1; }
+            else if(48 <= asciiValue && asciiValue <= 57) {
+                if(sign == 0) sign = 1;
+                int digit = value - '0';
+                if ((number > Integer.MAX_VALUE / 10)
+                        || (number == Integer.MAX_VALUE / 10 && digit > Integer.MAX_VALUE %10)) {
+                    return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+                }
+                number = number*10 + digit;
+            } else {break;}
         }
-
-        int number = 0;
-        for(int i = 0; i < numLength; i++) {
-            int radixValue = Character.getNumericValue(numberArr[numLength - (i+1)]);
-            number +=  radixValue * POWER_OF_TEN[i];
-        }
-
-        if(isNegative) number *= -1;
-
-        if(number >= MAX_INTEGER) return MAX_INTEGER;
-        if(number <= MIN_INTEGER) return MIN_INTEGER;
-        return number;
+        return sign*number;
     }
+
+
 
     @Override
     public void run() {
         String[] testcases = new String[] {"42", "   -42", "4193 with words", "words and 987"};
         Arrays.stream(testcases).forEach(s -> System.out.println(myAtoi(s)));
+    }
+
+    public static void main(String[] args) {
+        new StringToInteger().run();
     }
 }
