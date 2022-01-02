@@ -2,15 +2,18 @@ package com.turing.datastructure.unionfind;
 
 /**
  * TODO: Add documentation
+ *
+ * Usages: Minimum Spanning Tree, Grid Percolation, Network Connectivity, Image Processing, Least Common Ancestor in trees
  */
-@SuppressWarnings("unchecked")
 public class UnionFind {
 
-    private int size;
+    final private int size;
 
-    private int[] sz;
+    //This is the size of the tree structure
+    final private int[] sz;
 
-    private int[] id;
+    //Points to parent nodes, if id[i] = i then it is a root node.
+    final private int[] id;
 
     private int numberOfComponents;
 
@@ -47,6 +50,8 @@ public class UnionFind {
     public int componentSize(int p){
         return sz[find(p)];
     }
+
+    public int numberOfComponents() {return numberOfComponents;}
 
     public int size() {
         return size;
