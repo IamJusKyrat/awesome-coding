@@ -3,7 +3,6 @@ package com.turing.concept.caching;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class QueueCache implements Cache{
     protected final int DEFAULT_CACHE_SIZE = 100;
