@@ -1,4 +1,4 @@
-package com.turing.algorithm;
+package com.turing.algorithm.pathfinding;
 
 import java.util.*;
 

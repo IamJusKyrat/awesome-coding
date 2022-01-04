@@ -1,23 +1,23 @@
-package com.turing.algorithm;
+package com.turing.algorithm.pathfinding;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Stack;
 
-// A Queue Node
-class Node {
-    // (x, y) represents matrix cell coordinates, and
-    // `dist` represents their minimum distance from the source
-    int x, y, dist;
-
-    Node(int x, int y, int dist) {
-        this.x = x;
-        this.y = y;
-        this.dist = dist;
-    }
-}
-
 public class BFSShortestPath {
+    // A Queue Node
+    private static class Node {
+        // (x, y) represents matrix cell coordinates, and
+        // `dist` represents their minimum distance from the source
+        int x, y, dist;
+
+        public Node(int x, int y, int dist) {
+            this.x = x;
+            this.y = y;
+            this.dist = dist;
+        }
+    }
+
     // Below arrays detail all four possible movements from a cell
     private static final int[] row = {-1, 0, 0, 1};
     private static final int[] col = {0, -1, 1, 0};
@@ -66,7 +66,7 @@ public class BFSShortestPath {
             j = node.y;
             int dist = node.dist;
 
-            System.out.println("Distance: "+ node.dist + " | " + i + ","+ j);
+            System.out.println("Distance: " + node.dist + " | " + i + "," + j);
             // if the destination is found, update `min_dist` and stop
             if (i == x && j == y) {
                 min_dist = dist;
