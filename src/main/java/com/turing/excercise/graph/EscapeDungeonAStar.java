@@ -1,11 +1,25 @@
-package com.turing.algorithm.pathfinding;
+package com.turing.excercise.graph;
 
-import java.util.*;
+import com.turing.excercise.TestResultsHelper;
 
-public class AStarShortestPath implements Runnable{
+import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class EscapeDungeonAStar {
     // Below arrays detail all four possible movements from a cell
     private static final int[] row = {-1, 0, 0, 1};
     private static final int[] col = {0, -1, 1, 0};
+
+    private static boolean isTraversable(final int[][] mat, final int neighbourX, final int neighbourY) {
+        return (neighbourX != -1 && neighbourX != mat.length) &&
+                (neighbourY != -1 && neighbourY != mat[0].length)
+                && mat[neighbourX][neighbourY] == 1;
+    }
+
+    private static boolean sameCoordinates(final Node current, final int x, final int y) {
+        return current.x == x && current.y == y;
+    }
 
     static class Node implements Comparable<Node> {
         int x;
@@ -26,8 +40,8 @@ public class AStarShortestPath implements Runnable{
         }
     }
 
-    public static int findShortestAStarPath(final int[][] mat, final int startX, final int startY,
-                                      final int endX, final int endY, final boolean printPath) {
+    public int escapeDungeonAStar(final int[][] mat, final int startX, final int startY,
+                                         final int endX, final int endY, final boolean printPath) {
         final Queue<Node> open = new PriorityQueue<>();
         final Queue<Node> closed = new PriorityQueue<>();
 
@@ -43,7 +57,7 @@ public class AStarShortestPath implements Runnable{
         while (!open.isEmpty()) {
             final Node current = open.poll();
             nodesCalled += 1;
-            System.out.println("Called Node ("+ nodesCalled +") | " + current.x + "," + current.y + " | " + current.getFCost());
+            //System.out.println("Called Node ("+ nodesCalled +") | " + current.x + "," + current.y + " | " + current.getFCost());
             closed.add(current);
             if(sameCoordinates(current, endX, endY)) {
                 if(printPath) {
@@ -74,19 +88,13 @@ public class AStarShortestPath implements Runnable{
         return -1;
     }
 
-    private static boolean isTraversable(final int[][] mat, final int neighbourX, final int neighbourY) {
-        return (neighbourX != -1 && neighbourX != mat.length) &&
-                (neighbourY != -1 && neighbourY != mat[0].length)
-                && mat[neighbourX][neighbourY] == 1;
-    }
-
-    private static boolean sameCoordinates(final Node current, final int x, final int y) {
-        return current.x == x && current.y == y;
-    }
-
-    @Override
-    public void run() {
-        int[][] testCase =
+    private void run(){
+        int[][] testCase1 = { { 1, 0, 0, 1 },
+                { 1, 1, 1, 1 },
+                { 1, 0, 0, 1 },
+                { 1, 0, 1, 1 } };
+        TestResultsHelper.verify("1", 7, this.escapeDungeonAStar(testCase1,0,0,3,2, false));
+        int[][] testCase2 =
                 {
                         {1, 1, 1, 1, 1, 0, 0, 1, 1, 1},
                         {0, 1, 1, 1, 1, 1, 0, 1, 0, 1},
@@ -100,13 +108,10 @@ public class AStarShortestPath implements Runnable{
                         {0, 0, 1, 0, 0, 1, 1, 0, 0, 1},
                 };
 
-        int min_dist = AStarShortestPath.findShortestAStarPath(testCase, 0, 0, 9, 9, true);
+        TestResultsHelper.verify("2", 18, this.escapeDungeonAStar(testCase2,0,0,9,9, false));
+    }
 
-        if (min_dist != -1) {
-            System.out.println("The shortest path from source to destination " +
-                    "has length " + min_dist);
-        } else {
-            System.out.println("Destination cannot be reached from source");
-        }
+    public static void main(String[] args){
+        new EscapeDungeonAStar().run();
     }
 }
