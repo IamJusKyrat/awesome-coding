@@ -1,5 +1,8 @@
 package com.turing.excercise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestResultsHelper {
     // These are the tests we use to determine if the solution is correct.
     // You can add your own at the bottom.
@@ -36,6 +39,28 @@ public class TestResultsHelper {
             printIntegerArray(expected);
             System.out.print(" Your output: ");
             printIntegerArray(output);
+            System.out.println();
+        }
+    }
+
+    public static void verify(String test_case, List<String> expected, List<String> output) {
+        int expected_size = expected.size();
+        int output_size = output.size();
+        boolean result = true;
+        if (expected_size != output_size) {
+            result = false;
+        }
+        List<String> copyExpected = new ArrayList<>();
+        expected.forEach(element -> copyExpected.add(element));
+        copyExpected.removeAll(output);
+        result = copyExpected.size() == 0;
+        if (result) {
+            System.out.println(rightTick + " Test #" + test_case);
+        } else {
+            System.out.print(wrongTick + " Test #" + test_case + ": Expected ");
+            System.out.println(expected.toString());
+            System.out.print(" Your output: ");
+            System.out.println(output.toString());
             System.out.println();
         }
     }
