@@ -48,7 +48,7 @@ public class FirstMissingPositiveInteger {
             if(nums[i] > 0) return nums[i];
         }
         if (nums[0] > 0) return nums.length;
-        return nums.length;
+        return nums.length+1;
     }
 
     public void run() {
