@@ -17,7 +17,7 @@ public class CoinChanger {
 
         int totalCoins = coins.length;
 
-        // Creating array which stores subproblems' solutions
+        // Creating array which stores sub-problems' solutions
         double[][] arr = new double[totalCoins + 1][sum + 1];
 
         // Initialising first row with +ve infinity
