@@ -1,0 +1,1 @@
+1. Whenever creating a data structure, we need to make sure memory leaks do not occur.

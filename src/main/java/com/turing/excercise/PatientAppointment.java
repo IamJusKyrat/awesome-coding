@@ -1,4 +1,4 @@
-package com.turing.excercises;
+package com.turing.excercise;
 
 import java.util.*;
 
