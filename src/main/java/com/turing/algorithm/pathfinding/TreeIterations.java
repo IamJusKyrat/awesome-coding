@@ -1,5 +1,7 @@
 package com.turing.algorithm.pathfinding;
 
+import com.turing.datastructure.tree.TreeNode;
+
 import java.util.*;
 import java.util.List;
 public class TreeIterations<E extends Comparable<E>> {
