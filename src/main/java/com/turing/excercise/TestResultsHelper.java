@@ -86,4 +86,15 @@ public class TestResultsHelper {
             System.out.println();
         }
     }
+
+    public static void verify(String test_case, boolean expected, boolean output) {
+        boolean result = expected == output;
+        if (result) {
+            System.out.println(rightTick + " Test #" + test_case);
+        } else {
+            System.out.print(wrongTick + " Test #" + test_case + ": Expected " + expected);
+            System.out.print(" Your output: " + output);
+            System.out.println();
+        }
+    }
 }
