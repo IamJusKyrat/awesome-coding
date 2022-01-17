@@ -139,6 +139,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
     private Iterator<E> preOrderTraversal() {
         final int expectedNodeCount = nodeCount;
         final Stack<Node> stack = new LinkedListStack<>();
+        stack.push(root);
         return new Iterator<>() {
             @Override
             public boolean hasNext() {
@@ -165,9 +166,10 @@ public class BinarySearchTree<E extends Comparable<E>> {
     private Iterator<E> inOrderTraversal() {
         final int expectedNodeCount = nodeCount;
         final Stack<Node> stack = new LinkedListStack<>();
+        stack.push(root);
+
         return new Iterator<>() {
             Node trav = root;
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) throw new ConcurrentModificationException();
@@ -203,14 +205,16 @@ public class BinarySearchTree<E extends Comparable<E>> {
         final Stack<Node> tempStack = new LinkedListStack<>();
         final Stack<Node> stack = new LinkedListStack<>();
         tempStack.push(root);
+
         while (!tempStack.isEmpty()) {
-            Node node = stack.pop();
+            Node node = tempStack.pop();
             if (node != null) {
                 stack.push(node);
-                if (node.right != null) tempStack.push(node.right);
                 if (node.left != null) tempStack.push(node.left);
+                if (node.right != null) tempStack.push(node.right);
             }
         }
+
         return new Iterator<>() {
             @Override
             public boolean hasNext() {
@@ -235,6 +239,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         final int expectedNodeCount = nodeCount;
         final Queue<Node> queue = new LinkedListQueue<>();
         queue.enqueue(root);
+
         return new Iterator<>() {
             @Override
             public boolean hasNext() {
