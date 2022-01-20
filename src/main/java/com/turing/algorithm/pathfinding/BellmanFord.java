@@ -1,6 +1,7 @@
 package com.turing.algorithm.pathfinding;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class BellmanFord {
     /**
@@ -40,6 +41,10 @@ public class BellmanFord {
         Edge e4 = new Edge(2,1,-2.0);
         Edge e5 = new Edge(3,4,2.0);
         Edge e6 = new Edge(4,2,-1.0);
+        Edge[] edges = new Edge[]{e1, e2, e3, e4, e5, e6};
+        String str = "Hello";
+        Arrays.sort(edges, Comparator.comparingInt(o -> o.from));
+        System.out.println(str.substring(0,5));
         double[] result = BellmanFord.execute(new Edge[]{e1,e2,e3,e4,e5,e6}, 5, 0);
         System.out.println(Arrays.toString(result));
     }

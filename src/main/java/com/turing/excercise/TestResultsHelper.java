@@ -1,7 +1,9 @@
 package com.turing.excercise;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class TestResultsHelper {
     // These are the tests we use to determine if the solution is correct.
@@ -95,6 +97,18 @@ public class TestResultsHelper {
             System.out.print(wrongTick + " Test #" + test_case + ": Expected " + expected);
             System.out.print(" Your output: " + output);
             System.out.println();
+        }
+    }
+
+    public static void  printMemoMatrix(int[][] memo) {
+        for(int i = 0; i < memo.length; i++) {
+            System.out.println(Arrays.toString(memo[0]));
+        }
+    }
+
+    public static void  printMemoMatrix(Set<String>[][] memo) {
+        for(int i = 0; i < memo.length; i++) {
+            System.out.println(Arrays.toString(memo[0]));
         }
     }
 }
