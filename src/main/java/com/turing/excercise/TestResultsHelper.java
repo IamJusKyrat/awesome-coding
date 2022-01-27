@@ -45,15 +45,14 @@ public class TestResultsHelper {
         }
     }
 
-    public static void verify(String test_case, List<String> expected, List<String> output) {
+    public static <T> void verify(String test_case, List<T> expected, List<T> output) {
         int expected_size = expected.size();
         int output_size = output.size();
-        boolean result = true;
+        boolean result;
         if (expected_size != output_size) {
             result = false;
         }
-        List<String> copyExpected = new ArrayList<>();
-        expected.forEach(element -> copyExpected.add(element));
+        List<T> copyExpected = new ArrayList<>(expected);
         copyExpected.removeAll(output);
         result = copyExpected.size() == 0;
         if (result) {
