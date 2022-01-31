@@ -5,6 +5,16 @@ import com.turing.excercise.tree.FindAverage;
 
 import java.util.*;
 
+/**
+ * Category: Medium
+ *
+ * Question: Given two strings s and p, return an array of all the start indices of p's anagrams in s.
+ * You may return the answer in any order.
+ * An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+ * typically using all the original letters exactly once.
+ *
+ * Reference: https://leetcode.com/problems/find-all-anagrams-in-a-string/
+ */
 public class FindAnagrams {
     public List<Integer> findAnagrams(String s, String p) {
         //anagram means that we can have elements in any order we just need to meet the criteria that
