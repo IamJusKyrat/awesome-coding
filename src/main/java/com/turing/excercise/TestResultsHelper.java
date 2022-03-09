@@ -77,6 +77,17 @@ public class TestResultsHelper {
         }
     }
 
+    public static void verify(String test_case, double expected, double output) {
+        boolean result = (expected == output);
+        if (result) {
+            System.out.println(rightTick + " Test #" + test_case);
+        } else {
+            System.out.print(wrongTick + " Test #" + test_case + ": Expected " + expected);
+            System.out.print(" Your output: " + output);
+            System.out.println();
+        }
+    }
+
     public static void verify(String test_case, String expected, String output) {
         boolean result = expected.equals(output);
         if (result) {
