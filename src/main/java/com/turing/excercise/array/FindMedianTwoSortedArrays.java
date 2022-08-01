@@ -39,9 +39,38 @@ public class FindMedianTwoSortedArrays {
         }
     }
 
+    //Time: O(log(m+n)), Space: O(1)
+    public double findMedianSortedArraysBest(int[] nums1, int[] nums2) {
+        int[] sm = nums1, lr = nums2;
+        if(sm.length > lr.length) {sm=nums2; lr = nums1;}
+        int total = sm.length + lr.length;
+        int half = total/2;
+
+        int lSm=0,rSm=sm.length - 1;
+        while(true) {
+            int midSm = (lSm+rSm)/2; //Edge case if smaller array is of size 1
+            int midLr = half - midSm - 2;
+
+            int maxLeftSm = midSm < 0 ? Integer.MIN_VALUE: sm[midSm];
+            int minRightSm = (midSm + 1) >= sm.length ? Integer.MAX_VALUE : sm[midSm+1];
+            int maxLeftLr = midLr < 0 ? Integer.MIN_VALUE: lr[midLr];
+            int minRightLr = (midLr + 1) >= lr.length ? Integer.MAX_VALUE : lr[midLr+1];
+
+            if(maxLeftSm <= minRightLr && maxLeftLr <= minRightSm) {
+                return total%2 == 0 ?
+                        ((double) Math.max(maxLeftSm, maxLeftLr) + Math.min(minRightSm, minRightLr))/2
+                        : Math.min(minRightSm, minRightLr);
+            } else if(maxLeftSm > minRightLr) {
+                rSm = midSm - 1;
+            } else {
+                lSm = midSm + 1;
+            }
+        }
+    }
+
     private void run() {
-        TestResultsHelper.verify("1", 2.0, findMedianSortedArrays(new int[]{1,2}, new int[]{3}));
-        TestResultsHelper.verify("2", 2.5, findMedianSortedArrays(new int[]{1,2}, new int[]{3,4}));
+        TestResultsHelper.verify("1", 2.0, findMedianSortedArraysBest(new int[]{1,2}, new int[]{3}));
+        TestResultsHelper.verify("2", 2.5, findMedianSortedArraysBest(new int[]{1,2}, new int[]{3,4}));
     }
 
     public static void main(String[] args) {
