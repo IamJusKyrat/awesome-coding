@@ -1,5 +1,7 @@
 package com.turing.excercise.string;
 
+import com.turing.excercise.TestResultsHelper;
+
 import java.util.Arrays;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Arrays;
  *
  * Reference: https://leetcode.com/problems/longest-substring-without-repeating-characters/
  */
-public class LongestNonRepeatingSubstring implements Runnable{
+public class LongestNonRepeatingSubstring {
 
     public int lengthOfLongestSubstring(String s) {
         int[] indexLocations = new int[255];
@@ -31,9 +33,15 @@ public class LongestNonRepeatingSubstring implements Runnable{
         return maxLength;
     }
 
-    @Override
     public void run() {
         String[] testcases = new String[] {"abcabcbb", "bbbbb", "pwwkew", "aab"};
-        Arrays.stream(testcases).forEach(s -> System.out.println(lengthOfLongestSubstring(s)));
+        TestResultsHelper.verify("1", 3, lengthOfLongestSubstring(testcases[0]));
+        TestResultsHelper.verify("2", 1, lengthOfLongestSubstring(testcases[1]));
+        TestResultsHelper.verify("3", 3, lengthOfLongestSubstring(testcases[2]));
+        TestResultsHelper.verify("4", 2, lengthOfLongestSubstring(testcases[3]));
     }
+
+     public static void main(String[] args) {
+        new LongestNonRepeatingSubstring().run();
+     }
 }

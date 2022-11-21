@@ -1,7 +1,9 @@
 package com.turing.excercise;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class TestResultsHelper {
     // These are the tests we use to determine if the solution is correct.
@@ -43,15 +45,14 @@ public class TestResultsHelper {
         }
     }
 
-    public static void verify(String test_case, List<String> expected, List<String> output) {
+    public static <T> void verify(String test_case, List<T> expected, List<T> output) {
         int expected_size = expected.size();
         int output_size = output.size();
-        boolean result = true;
+        boolean result;
         if (expected_size != output_size) {
             result = false;
         }
-        List<String> copyExpected = new ArrayList<>();
-        expected.forEach(element -> copyExpected.add(element));
+        List<T> copyExpected = new ArrayList<>(expected);
         copyExpected.removeAll(output);
         result = copyExpected.size() == 0;
         if (result) {
@@ -84,6 +85,29 @@ public class TestResultsHelper {
             System.out.print(wrongTick + " Test #" + test_case + ": Expected " + expected);
             System.out.print(" Your output: " + output);
             System.out.println();
+        }
+    }
+
+    public static void verify(String test_case, boolean expected, boolean output) {
+        boolean result = expected == output;
+        if (result) {
+            System.out.println(rightTick + " Test #" + test_case);
+        } else {
+            System.out.print(wrongTick + " Test #" + test_case + ": Expected " + expected);
+            System.out.print(" Your output: " + output);
+            System.out.println();
+        }
+    }
+
+    public static void  printMemoMatrix(int[][] memo) {
+        for(int i = 0; i < memo.length; i++) {
+            System.out.println(Arrays.toString(memo[0]));
+        }
+    }
+
+    public static void  printMemoMatrix(Set<String>[][] memo) {
+        for(int i = 0; i < memo.length; i++) {
+            System.out.println(Arrays.toString(memo[0]));
         }
     }
 }
